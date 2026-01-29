@@ -1,0 +1,12 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Build tags
+.build/
+build/
+.builds/
+builds/
+
+# JetBrains IDEA
+.idea/
