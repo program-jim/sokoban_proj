@@ -11,6 +11,10 @@ config_version=5
 [application]
 
 config/name="sokoban_proj"
+config/description="A demo project made with Godot.
+Now become open-source to everyone !
+(Learning from a course of timothyqiu on BiliBili)"
+config/version="1.0.0.0"
 run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
