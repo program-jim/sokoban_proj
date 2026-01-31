@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://npga00e4np35"]
+
+[ext_resource type="Script" path="res://scripts/crate.gd" id="1_eieat"]
+[ext_resource type="Texture2D" uid="uid://ucye55i7a810" path="res://assets/kenney_sokoban-pack/Tilesheet/sokoban_tilesheet.png" id="1_q7my7"]
+
+[sub_resource type="Animation" id="Animation_0vgg1"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(64, 0, 64, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_ss4me"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(64, 0, 64, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_2jdoc"]
+resource_name = "reached"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(64, 64, 64, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqkhl"]
+_data = {
+"RESET": SubResource("Animation_ss4me"),
+"default": SubResource("Animation_0vgg1"),
+"reached": SubResource("Animation_2jdoc")
+}
+
+[node name="Crate" type="Node2D" groups=["crates"]]
+script = ExtResource("1_eieat")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_q7my7")
+region_enabled = true
+region_rect = Rect2(64, 0, 64, 64)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qqkhl")
+}

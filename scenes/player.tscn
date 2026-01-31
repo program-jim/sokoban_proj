@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcr75qdiwciee"]
+
+[ext_resource type="Texture2D" uid="uid://ucye55i7a810" path="res://assets/kenney_sokoban-pack/Tilesheet/sokoban_tilesheet.png" id="1_1ri0b"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_tompd"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_tompd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1ri0b")
+region_enabled = true
+region_rect = Rect2(0, 320, 64, 64)
