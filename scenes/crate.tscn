@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scripts/crate.gd" id="1_eieat"]
 [ext_resource type="Texture2D" uid="uid://ucye55i7a810" path="res://assets/kenney_sokoban-pack/Tilesheet/sokoban_tilesheet.png" id="1_q7my7"]
 
-[sub_resource type="Animation" id="Animation_0vgg1"]
-resource_name = "default"
+[sub_resource type="Animation" id="Animation_ss4me"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,8 +18,8 @@ tracks/0/keys = {
 "values": [Rect2(64, 0, 64, 64)]
 }
 
-[sub_resource type="Animation" id="Animation_ss4me"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_0vgg1"]
+resource_name = "default"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
