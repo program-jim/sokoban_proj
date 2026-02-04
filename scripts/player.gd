@@ -1,6 +1,7 @@
 extends "res://scripts/game_object.gd"
 
 var astar := AStarGrid2D.new()
+var undo_redo := UndoRedo.new()
 var nav_path: Array[Vector2i]
 
 
@@ -34,6 +35,10 @@ func _process(delta: float) -> void:
 			nav_path.clear()
 		return
 
+	if Input.is_action_pressed("undo"):
+		undo_redo.undo()
+		return
+
 	var dir := Vector2i(
 		Input.get_vector("move_left", "move_right", "move_up", "move_down").round()
 	)
@@ -57,7 +62,15 @@ func try_move(dir: Vector2i) -> bool:
 		if is_wall(crate_dest) or get_crate(crate_dest):
 			bump(dest)
 			return false
-		crate.move_to(crate_dest)
 
-	move_to(dest)
+	undo_redo.create_action("move")
+
+	if crate:
+		undo_redo.add_do_method(crate.move_to.bind(dest + dir))
+		undo_redo.add_undo_method(crate.move_to.bind(crate.cell_position))
+	undo_redo.add_do_method(move_to.bind(dest))
+	undo_redo.add_undo_method(move_to.bind(cell_position))
+
+	undo_redo.commit_action(true)
+
 	return true
